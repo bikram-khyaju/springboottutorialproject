@@ -7,6 +7,6 @@ public class HelloController {
 
     @GetMapping("/")
     public String helloworld(){
-        return "Welcome to Daily code buffer!!   wow";
+        return "Welcome to Daily code buffer!!   Bikram";
     }
 }

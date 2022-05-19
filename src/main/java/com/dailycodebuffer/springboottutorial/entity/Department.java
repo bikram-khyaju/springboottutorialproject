@@ -1,9 +1,13 @@
 package com.dailycodebuffer.springboottutorial.entity;
 
+import org.aspectj.bridge.Message;
+import org.hibernate.validator.constraints.Length;
+
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.validation.constraints.*;
 
 @Entity
 public class Department {
@@ -11,6 +15,14 @@ public class Department {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long departmentId;
+
+    @NotBlank(message = "Please Add Department Name")
+  /*  @Length(max=5, min = 1)
+    @Size(max = 10, min = 0)
+    @Email
+    @Positive
+    @Negative*/
+
     private String departmentName;
     private String departmentAddress;
     private String departmentCode;
@@ -46,6 +58,8 @@ public class Department {
     public void setDepartmentCode(String departmentCode) {
         this.departmentCode = departmentCode;
     }
+
+    public Department() {}
 
     public Department(Long departmentId, String departmentName, String departmentAddress, String departmentCode) {
         this.departmentId = departmentId;
